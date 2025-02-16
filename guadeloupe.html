@@ -1,0 +1,354 @@
+<!DOCTYPE html>
+<html lang="fr">
+    <head>
+        <meta charset="UTF-8">
+        <meta name="viewport" content="width=device-width, initial-scale=1.0">
+        <meta name="description" content="Découvrez les meilleures choses à faire à Marseille, des incontournables aux bons plans exclusifs !">
+        <title>Choses à faire à Marseille - Activités incontournables et bons plans</title>
+        <style>
+            body { font-family: 'Poppins', sans-serif; margin: 0; padding: 0; background-color: #f4f4f9; color: #333; }
+            header { background-color: rgba(0, 115, 230, 0.9); color: white; padding: 20px; font-size: 24px; display: flex; justify-content: space-between; align-items: center; box-shadow: 0px 4px 10px rgba(0,0,0,0.1); }
+            nav { display: flex; gap: 20px; align-items: center; }
+            .dropdown { position: relative; display: inline-block; }
+            .dropdown-content { display: none; position: absolute; background-color: white; min-width: 180px; box-shadow: 0px 8px 16px rgba(0, 0, 0, 0.2); z-index: 1; border-radius: 5px; overflow: hidden; top: 100%; left: 0; }
+            .dropdown-content a { color: black; padding: 12px; text-decoration: none; display: block; transition: background 0.3s ease; }
+            .dropdown-content a:hover { background-color: #f0f0f0; }
+            .dropdown:hover .dropdown-content { display: block; }
+            .content { max-width: 800px; margin: 0 auto; padding: 40px; text-align: center; display: flex; flex-direction: column; align-items: center; }
+            .section { padding: 20px; text-align: center; background-color: white; margin-bottom: 20px; border-radius: 10px; box-shadow: 0px 4px 10px rgba(0,0,0,0.1); cursor: pointer; position: relative; }
+            .section:hover { transform: translateY(-5px); box-shadow: 0px 12px 30px rgba(0,0,0,0.15); }
+            .alt-section { background-color: #eef5ff; }
+            .nav-link { color: white; text-decoration: none; padding: 12px 18px; font-weight: bold; border-radius: 5px; transition: background 0.3s ease; }
+            .nav-link:hover { background-color: #005bb5; }
+            .highlight { font-size: 28px; font-weight: bold; color: #0073e6; }
+            .blog-section { max-width: 800px; margin: 0 auto; text-align: center; }
+            .blog-section h2 { color: #0073e6; }
+            .blog-section p { line-height: 1.6; display: flex !important; }
+            .hidden-content {     display: none; } 
+            .background { background-image: url('https://upload.wikimedia.org/wikipedia/commons/thumb/8/8f/Panorama_Chutes_du_Carbet.jpg/1920px-Panorama_Chutes_du_Carbet.jpg'); background-size: cover; background-position: center; color: white; padding: 60px 20px; text-align: center; border-radius: 15px; box-shadow: 0px 8px 20px rgba(0,0,0,0.2); }
+            .section img { width: 100%; height: auto; border-radius: 10px; margin-top: 10px; }
+            .toggle-btn { background-color: #0073e6; color: white; border: none; padding: 10px 20px; margin-top: 10px; cursor: pointer; border-radius: 25px; font-size: 14px; transition: background-color 0.3s ease; }
+            .toggle-btn:hover { background-color: #005bb5; }
+            .genre-container { position: absolute; top: 10px; right: 10px; display: flex !important; gap: 5px; }
+            .genre { padding: 5px 10px; border-radius: 25px; font-size: 12px; color: white; }
+            .genre.culture { background-color: #ff6f61; }
+            .genre.nature { background-color: #6b5b95; }
+            .genre.gastronomie { background-color: #88b04b; }
+            .genre.histoire { background-color: #ffd700; }
+            .genre.détente { background-color: #92a8d1; }
+            .filter-buttons { margin-bottom: 20px; }
+            .filter-button { background-color: #0073e6; color: white; border: none; padding: 10px 20px; margin: 5px; cursor: pointer; border-radius: 25px; font-size: 14px; transition: background-color 0.3s ease; }
+            .filter-button:hover { background-color: #005bb5; }
+            .action-button { background-color: #ff6f61; color: white; border: none; padding: 10px 20px; margin-left: 20px; cursor: pointer; border-radius: 25px; font-size: 14px; transition: background-color 0.3s ease; }
+            .action-button:hover { background-color: #ff5a5a; }
+        </style>
+        <script>
+         function toggleText(section) {
+        let content = section.querySelector('.hidden-content');
+        let button = section.querySelector('.toggle-btn');
+    
+        if (content.style.display === '' || content.style.display === 'none') {
+            content.style.display = 'block';
+            button.innerText = 'Voir moins';
+        } else {
+            content.style.display = 'none';
+            button.innerText = 'Voir plus';
+        }
+    }
+    
+            function filterSections(genre) {
+                const sections = document.querySelectorAll('.section');
+                sections.forEach(section => {
+                    const genres = section.dataset.genre.split(' ');
+                    if (genre === 'all' || genres.includes(genre)) {
+                        section.style.display = 'block';
+                    } else {
+                        section.style.display = 'none';
+                    }
+                });
+            }
+        </script>
+    </head>
+<body>
+    <header>
+        <h1 id="page-title">Choses à faire en Guadeloupe</h1>
+        <nav>
+            <div class="dropdown">
+                <a href="#" class="nav-link">Destinations</a>
+                <div class="dropdown-content">
+                    <a href="index.html">Marseille</a>
+                    <a href="larochelle.html">La Rochelle</a>
+                    <a href="guadeloupe.html">Guadeloupe</a>
+
+                    
+                    <a href="guadeloupe.html">Guadeloupe</a>
+                </div>
+            </div>
+            <a id="deals" href="https://coclibel.com/serviceproduct/1739389594098x986307687200587800?lang=fr_FR" class="nav-link">Nos bons plans</a>
+            <a href="contact.html" class="nav-link">Contact</a>
+        </nav>
+    </header>
+    <div class="background">
+        <h1>Découvrez les meilleures choses à faire en Guadeloupe</h1>
+        <p>Activités incontournables, lieux emblématiques et bons plans exclusifs.</p>
+    </div>
+    <div class="content">
+        <div class="filter-buttons">
+            <button class="filter-button" onclick="filterSections('all')">Tout</button>
+            <button class="filter-button" onclick="filterSections('culture')">Culture</button>
+            <button class="filter-button" onclick="filterSections('nature')">Nature</button>
+            <button class="filter-button" onclick="filterSections('gastronomie')">Gastronomie</button>
+            <button class="filter-button" onclick="filterSections('histoire')">Histoire</button>
+            <button class="filter-button" onclick="filterSections('détente')">Détente</button>
+        </div>
+        <div class="section" data-genre="nature" onclick="toggleText(this)">
+            <div class="genre-container">
+                <div class="genre nature">Nature</div>
+            </div>
+            <h2>1. Petite Terre : Une Réserve Naturelle avec Requins, Raies et Tortues</h2>
+            <img src="https://www.uhaina-croisieres-guadeloupe.com/wp-content/uploads/2017/10/po5.jpg" alt="Petite Terre">
+            <div class="hidden-content">
+                <p>Un paradis préservé accessible uniquement par bateau ! L'archipel de Petite Terre est un joyau naturel protégé, parfait pour les amoureux de la faune et du snorkeling. Ici, vous pourrez observer :</p>
+                <ul>
+                    <li>Des requins-citrons, impressionnants mais inoffensifs.</li>
+                    <li>Des raies pastenagues, qui glissent gracieusement sous l’eau.</li>
+                    <li>Des tortues marines, qui nagent dans des eaux cristallines.</li>
+                </ul>
+                <p>L'île est inhabitée et offre un paysage de carte postale avec plages de sable blanc et cocotiers.</p>
+                <h3>🔥 BON PLAN :</h3>
+                👉 Louez un bateau pas cher et partez à l’aventure : <a href="https://coclibel.com/serviceprod1/1739197158047x402303106970550300?lang=fr_FR" target="_blank">Lien vers location bateau</a>
+            </div>
+            <button class="toggle-btn">Voir plus</button>
+        </div>
+        <div class="section alt-section" data-genre="nature" onclick="toggleText(this)">
+            <div class="genre-container">
+                <div class="genre nature">Nature</div>
+            </div>
+            <h2>2. Survoler la Guadeloupe en ULM Autogire</h2>
+            <img src="https://ulmcaraibes.com/wp-content/uploads/2019/08/patrouille.jpg" alt="ULM Autogire">
+            <div class="hidden-content">
+                <p>Un spectacle aérien inoubliable ! Prenez de la hauteur pour admirer la diversité des paysages guadeloupéens :</p>
+                <ul>
+                    <li>Vue panoramique sur les plages paradisiaques et la mangrove.</li>
+                    <li>Observation des îlets et des récifs coralliens d’en haut.</li>
+                    <li>Survol de la Soufrière, le plus haut volcan des Petites Antilles.</li>
+                </ul>
+                <h3>🔥 BON PLAN :</h3>
+                👉 Réservez votre vol en ULM ici : <a href="https://coclibel.com/serviceprod1/1739197158047x402303106970550300?lang=fr_FR" target="_blank">Lien vers le bon plan ULM</a>
+            </div>
+            <button class="toggle-btn">Voir plus</button>
+        </div>
+        <div class="section" data-genre="nature" onclick="toggleText(this)">
+            <div class="genre-container">
+                <div class="genre nature">Nature</div>
+            </div>
+            <h2>3. Plongée sous-marine dans la Réserve Cousteau</h2>
+            <img src="https://www.atlantisformation-guadeloupe.com/photo/art/default/5814747-8938638.jpg?v=1384184917" alt="Réserve Cousteau">
+            <div class="hidden-content">
+                <p>L’un des meilleurs spots de plongée des Caraïbes ! Découvrez les fonds marins exceptionnels de la Guadeloupe en plongeant dans la célèbre Réserve Cousteau.</p>
+                <ul>
+                    <li>Nagez avec les tortues, poissons tropicaux et coraux multicolores.</li>
+                    <li>Plongée épave pour les amateurs d’aventure.</li>
+                    <li>Expérience de plongée avec barracudas pour un frisson inoubliable !</li>
+                </ul>
+                <h3>🔥 BON PLAN :</h3>
+                👉 Réservez votre plongée ici : <a href="https://coclibel.com/serviceprod1/1739197158047x402303106970550300?lang=fr_FR" target="_blank">Lien vers le bon plan plongée</a>
+            </div>
+            <button class="toggle-btn">Voir plus</button>
+        </div>
+        <div class="section alt-section" data-genre="nature" onclick="toggleText(this)">
+            <div class="genre-container">
+                <div class="genre nature">Nature</div>
+            </div>
+            <h2>4. Excursion en bateau dans la mangrove et les îlets sauvages</h2>
+            <img src="https://upload.wikimedia.org/wikipedia/commons/thumb/7/7a/Mangrove_Moule.jpg/1920px-Mangrove_Moule.jpg" alt="Mangrove et îlets sauvages">
+            <div class="hidden-content">
+                <p>Un écosystème unique à explorer ! La Guadeloupe abrite une immense mangrove, abritant des espèces rares et des paysages à couper le souffle. Lors d’une excursion :</p>
+                <ul>
+                    <li>Naviguez à travers les tunnels de palétuviers.</li>
+                    <li>Observez les oiseaux exotiques et étoiles de mer.</li>
+                    <li>Profitez d’une pause baignade dans un lagon turquoise.</li>
+                </ul>
+                <h3>🔥 BON PLAN :</h3>
+                👉 Réservez votre sortie à voile : <a href="https://coclibel.com/serviceprod1/1737144002261x400699764409630700?lang=fr_FR&root=1737143611010x375283285258666000&serviceaccueillant=1739389594098x986307687200587800&discount=discount" target="_blank">ici</a> et à moteur  <a href="https://coclibel.com/serviceprod1/1737283826343x116242408979038200?lang=fr_FR&root=1737283599393x185203375726919680&serviceaccueillant=1739389594098x986307687200587800" target="_blank">ici</a> 
+            </div>
+            <button class="toggle-btn">Voir plus</button>
+        </div>
+        <div class="section" data-genre="nature" onclick="toggleText(this)">
+            <div class="genre-container">
+                <div class="genre nature">Nature</div>
+            </div>
+            <h2>5. Kayak sur des eaux paradisiaques</h2>
+            <img src="https://img.freepik.com/photos-gratuite/kayak-bateau-magnifique-plage-tropicale-mer-cocotier-dans-ile-paradisiaque_74190-2194.jpg?t=st=1739725990~exp=1739729590~hmac=4ec1e5e158d058cc8e68136bb779ce7bceeb65e0174b9d72184b6ed7f08a9d46&w=1480" alt="Kayak">
+            <div class="hidden-content">
+                <p>Pagayez sur une eau turquoise en toute tranquillité ! Naviguez en kayak transparent pour explorer les lagons et îlots inaccessibles autrement.</p>
+                <ul>
+                    <li>Spot incontournable : Grand Cul-de-Sac Marin.</li>
+                    <li>Eaux peu profondes et cristallines pour observer les poissons sous votre embarcation.</li>
+                    <li>Couchers de soleil magiques en kayak au crépuscule.</li>
+                </ul>
+                <h3>🔥 BON PLAN :</h3>
+                👉 Louez un kayak ici : <a href="https://coclibel.com/serviceprod1/1739205284263x617250864196223000?lang=fr_FR&root=1739204983398x616688011332812800&serviceaccueillant=1739389594098x986307687200587800&discount=discount" target="_blank">Lien vers le bon plan kayak</a>
+            </div>
+            <button class="toggle-btn">Voir plus</button>
+        </div>
+        <div class="section alt-section" data-genre="nature" onclick="toggleText(this)">
+            <div class="genre-container">
+                <div class="genre nature">Nature</div>
+            </div>
+            <h2>6. Randonnée et baignade dans les cascades de la jungle</h2>
+            <img src="https://images.ctfassets.net/etdek7frp0ue/4nusAowjpMHwf9xaNzCn1W/fa2586229fe701eaf4092b2ef252c00c/saut-lezarde-cascades-guadeloupe.jpg?w=900&h=380&fm=avif&q=80" alt="Cascades de la jungle">
+            <div class="hidden-content">
+                <p>Des lieux magiques à explorer ! La Guadeloupe regorge de cascades secrètes accessibles après de magnifiques balades en forêt tropicale.</p>
+                <ul>
+                    <li>Chutes du Carbet : 3 cascades impressionnantes en pleine jungle.</li>
+                    <li>Le saut dela lézarde : une cascade magnifique apèrs une super rando</li>
+                    <li>Cascade aux Écrevisses : Facilement accessible et parfaite pour une baignade rafraîchissante.</li>
+                    <li>Les Bassins Bleus : Un véritable décor de carte postale.</li>
+                </ul>
+              
+            </div>
+            <button class="toggle-btn">Voir plus</button>
+        </div>
+        <div class="section" data-genre="nature" onclick="toggleText(this)">
+            <div class="genre-container">
+                <div class="genre nature">Nature</div>
+            </div>
+            <h2>7. Ascension du volcan de la Soufrière</h2>
+            <img src="https://upload.wikimedia.org/wikipedia/commons/thumb/e/ee/Soufriere-sommet.JPG/1920px-Soufriere-sommet.JPG" alt="Volcan de la Soufrière">
+            <div class="hidden-content">
+                <p>Vivez une aventure unique sur le plus grand volcan des Antilles !</p>
+                <ul>
+                    <li>Randonnée incontournable pour atteindre le sommet et admirer un panorama exceptionnel.</li>
+                    <li>Sentiers à travers la forêt tropicale et paysages lunaires en altitude.</li>
+                    <li>Sources chaudes naturelles pour un bain relaxant après l’effort.</li>
+                </ul>
+             
+            <button class="toggle-btn">Voir plus</button>
+        </div>
+        <div class="section alt-section" data-genre="nature" onclick="toggleText(this)">
+            <div class="genre-container">
+                <div class="genre nature">Nature</div>
+            </div>
+            <h2>8. Observation des cétacés : dauphins et baleines</h2>
+            <img src="https://www.guadeloupe-leguide.fr/images/crop/observation-des-baleines-en-guadeloupe.jpg" alt="Cétacés">
+            <div class="hidden-content">
+                <p>Une rencontre magique en pleine mer ! La Guadeloupe est l’un des meilleurs endroits pour observer les dauphins et les baleines.</p>
+                <ul>
+                    <li>Sortie en bateau avec guides spécialisés.</li>
+                    <li>Observation des dauphins en groupe, souvent joueurs et curieux.</li>
+                    <li>Saison des baleines (janvier à avril) pour voir ces géants majestueux.</li>
+                </ul>
+                <h3>🔥 BON PLAN :</h3>
+                👉 Réservez votre sortie dauphins ici : <a href="https://aventurecetaces.com/" target="_blank">Lien vers le bon plan observation</a>
+            </div>
+            <button class="toggle-btn">Voir plus</button>
+        </div>
+        <div class="section" data-genre="gastronomie" onclick="toggleText(this)">
+            <div class="genre-container">
+                <div class="genre gastronomie">Gastronomie</div>
+            </div>
+            <h2>9. Visite d’une distillerie de rhum et dégustation</h2>
+            <img src="https://upload.wikimedia.org/wikipedia/commons/f/f3/Mus%C3%A9e_rhum_Guadeloupe_002.jpg" alt="Distillerie de rhum">
+            <div class="hidden-content">
+                <p>Le rhum, l’or liquide de la Guadeloupe ! Découvrez le processus de fabrication du rhum agricole en visitant une distillerie traditionnelle.</p>
+                <ul>
+                    <li>Visite guidée des installations.</li>
+                    <li>Dégustation des meilleures cuvées (avec modération).</li>
+                    <li>Boutique pour ramener un souvenir 100% local.</li>
+                </ul>
+                <h3>🔥 BON PLAN :</h3>
+                👉 Meilleure distillerie à visiter  : <a href="https://www.rhumbologne.fr/distillerie-visite" target="_blank">ici</a>
+            </div>
+            <button class="toggle-btn">Voir plus</button>
+        </div>
+        <div class="section alt-section" data-genre="gastronomie" onclick="toggleText(this)">
+            <div class="genre-container">
+                <div class="genre gastronomie">Gastronomie</div>
+            </div>
+            <h2>10. Dîner gastronomique avec un chef étoilé spécialisé en cuisine créole</h2>
+            <img src="https://static.wixstatic.com/media/11e821_7b59c937825444e7a55bf8e7622e0d5b~mv2.jpg/v1/fill/w_390,h_390,al_c,q_80,usm_0.66_1.00_0.01,enc_avif,quality_auto/18177904957002748.jpg" alt="Dîner gastronomique">
+            <div class="hidden-content">
+                <p>Goûtez aux saveurs authentiques avec une touche raffinée ! Profitez d’un repas d’exception concocté par un chef ayant participé à Top Chef, spécialisé en cuisine guadeloupéenne.</p>
+                <ul>
+                    <li>Colombo de poisson revisité.</li>
+                    <li>Langouste grillée à la sauce créole.</li>
+                    <li>Ti' Punch maison pour accompagner votre repas.</li>
+                </ul>
+                <h3>🔥 BON PLAN :</h3>
+                👉 Réservez une table ici : <a href="https://coclibel.com/serviceprod1/1737725255245x944957508211703800?lang=fr_FR&root=1737725155374x117597531631517700&serviceaccueillant=1739389594098x986307687200587800&discount=discount" target="_blank">Lien vers le chef Top Chef</a>
+            </div>
+            <button class="toggle-btn">Voir plus</button>
+        </div>
+        <div class="section" data-genre="nature" onclick="toggleText(this)">
+            <div class="genre-container">
+                <div class="genre nature">Nature</div>
+            </div>
+            <h2>11. Excursion en paddle au lever du soleil</h2>
+            <img src="https://cdn.laetis.fr/i/cad/full/https://cdt22.media.tourinsoft.eu/upload/unsplash-2017-09-paddle-michael-henry.jpg" alt="Paddle">
+            <div class="hidden-content">
+                <p>Un moment de pure sérénité ! Profitez du calme matinal pour glisser sur une mer d’huile en paddle.</p>
+                <ul>
+                    <li>Découverte des criques secrètes.</li>
+                    <li>Parfait pour observer la faune marine.</li>
+                    <li>Un cadre féerique pour bien commencer la journée.</li>
+                </ul>
+                <h3>🔥 BON PLAN :</h3>
+                👉 Louez un paddle ici : <a href="https://coclibel.com/serviceprod1/1739205284263x617250864196223000?lang=fr_FR&root=1739204983398x616688011332812800&serviceaccueillant=1739389594098x986307687200587800&discount=discount" target="_blank">Lien pour bon plan paddle</a>
+            </div>
+            <button class="toggle-btn">Voir plus</button>
+        </div>
+        <div class="section alt-section" data-genre="histoire" onclick="toggleText(this)">
+            <div class="genre-container">
+                <div class="genre histoire">Histoire</div>
+            </div>
+            <h2>12. Visite du Fort Delgrès : immersion historique</h2>
+            <img src="https://upload.wikimedia.org/wikipedia/commons/thumb/c/c5/Entr%C3%A9e_du_Fort_Delgr%C3%A8s.JPG/1920px-Entr%C3%A9e_du_Fort_Delgr%C3%A8s.JPG" alt="Fort Delgrès">
+            <div class="hidden-content">
+                <p>Un lieu de mémoire incontournable en Guadeloupe ! Ce fort du XVIIIe siècle raconte l’histoire de la résistance des esclaves et des combats pour l’abolition.</p>
+                <ul>
+                    <li>Vue panoramique sur Basse-Terre.</li>
+                    <li>Explications passionnantes sur l’histoire de la Guadeloupe.</li>
+                </ul>
+            </div>
+            <button class="toggle-btn">Voir plus</button>
+        </div>
+        <div class="section" data-genre="nature" onclick="toggleText(this)">
+            <div class="genre-container">
+                <div class="genre nature">Nature</div>
+            </div>
+            <h2>13. Croisière au Lagon du grand cul de sac marin</h2>
+            <img src="https://www.aujardindescolibris.com/wp-content/uploads/2022/05/croisiere-ilets-grand-cul-sac-marin-guadeloupe-ceetiz.jpg" alt="Grand cul de sac marin">
+            <div class="hidden-content">
+                <p>Un aquarium naturel à ciel ouvert ! Découvrez un des plus beaux récifs coralliens de la Guadeloupe, où vous pourrez admirer :</p>
+                <ul>
+                    <li>Des Mangroves </li>
+                    <li>Des bancs de poissons tropicaux.</li>
+                    <li>Des étoiles de mer géantes.</li>
+                    <li>Des épaves entouré de poissons tropicaux </li>
+                </ul>
+                <h3>🔥 BON PLAN :</h3>
+                👉 Réservez votre sortie  : <a href="https://coclibel.com/serviceprod1/1737283826343x116242408979038200?lang=fr_FR&root=1737283599393x185203375726919680&serviceaccueillant=1739389594098x986307687200587800" target="_blank">ici pour le bateau à moteur</a> et <a href="https://coclibel.com/serviceprod1/1737144002261x400699764409630700?lang=fr_FR&root=1737143611010x375283285258666000&serviceaccueillant=1739389594098x986307687200587800&discount=discount" target="_blank">ici pour le voilier </a>
+            </div>
+            <button class="toggle-btn">Voir plus</button>
+        </div>
+        <div class="section alt-section" data-genre="nature" onclick="toggleText(this)">
+            <div class="genre-container">
+                <div class="genre nature">Nature</div>
+            </div>
+            <h2>14. Balade au Jardin Botanique de Deshaies</h2>
+            <img src="https://media.ouest-france.fr/v1/pictures/MjAyMzAyM2JmOGQxY2UxMmM3YmRiMGVjODUzMjYyYmNmODM0NzY?width=1260&height=708&focuspoint=0%2C0&cropresize=1&client_id=bpeditorial&sign=f2b50b7dd33e6df50a6f542262186f81c66a2d9a85e9aa50127c5cc017895211" alt="Jardin Botanique de Deshaies">
+            <div class="hidden-content">
+                <p>Un havre de paix aux mille couleurs !</p>
+                <ul>
+                    <li>Plantes tropicales et arbres centenaires.</li>
+                    <li>Bassin avec flamants roses et carpes géantes.</li>
+                    <li>Parcours relaxant au milieu de la nature.</li>
+                </ul>
+            </div>
+            <button class="toggle-btn">Voir plus</button>
+        </div>
+    
+    </div>
+</body>
+</html>
