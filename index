@@ -1,0 +1,421 @@
+<!DOCTYPE html>
+<html lang="fr">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta name="description" content="Découvrez les meilleures choses à faire à Marseille, des incontournables aux bons plans exclusifs !">
+    <title>Choses à faire à Marseille - Activités incontournables et bons plans</title>
+    <style>
+        body { font-family: 'Poppins', sans-serif; margin: 0; padding: 0; background-color: #f4f4f9; color: #333; }
+        header { background-color: rgba(0, 115, 230, 0.9); color: white; padding: 20px; font-size: 24px; display: flex; justify-content: space-between; align-items: center; box-shadow: 0px 4px 10px rgba(0,0,0,0.1); }
+        nav { display: flex; gap: 20px; align-items: center; }
+        .dropdown { position: relative; display: inline-block; }
+        .dropdown-content { display: none; position: absolute; background-color: white; min-width: 180px; box-shadow: 0px 8px 16px rgba(0, 0, 0, 0.2); z-index: 1; border-radius: 5px; overflow: hidden; top: 100%; left: 0; }
+        .dropdown-content a { color: black; padding: 12px; text-decoration: none; display: block; transition: background 0.3s ease; }
+        .dropdown-content a:hover { background-color: #f0f0f0; }
+        .dropdown:hover .dropdown-content { display: block; }
+        .content { max-width: 800px; margin: 0 auto; padding: 40px; text-align: center; display: flex; flex-direction: column; align-items: center; }
+        .section { padding: 20px; text-align: center; background-color: white; margin-bottom: 20px; border-radius: 10px; box-shadow: 0px 4px 10px rgba(0,0,0,0.1); cursor: pointer; position: relative; }
+        .section:hover { transform: translateY(-5px); box-shadow: 0px 12px 30px rgba(0,0,0,0.15); }
+        .alt-section { background-color: #eef5ff; }
+        .nav-link { color: white; text-decoration: none; padding: 12px 18px; font-weight: bold; border-radius: 5px; transition: background 0.3s ease; }
+        .nav-link:hover { background-color: #005bb5; }
+        .highlight { font-size: 28px; font-weight: bold; color: #0073e6; }
+        .blog-section { max-width: 800px; margin: 0 auto; text-align: center; }
+        .blog-section h2 { color: #0073e6; }
+        .blog-section p { line-height: 1.6; display: flex !important; }
+        .hidden-content {     display: none; } 
+        .background { background-image: url('https://upload.wikimedia.org/wikipedia/commons/thumb/a/a1/Notre-Dame_de_la_Garde_aerial_view_2020.jpeg/1280px-Notre-Dame_de_la_Garde_aerial_view_2020.jpeg'); background-size: cover; background-position: center; color: white; padding: 60px 20px; text-align: center; border-radius: 15px; box-shadow: 0px 8px 20px rgba(0,0,0,0.2); }
+        .section img { width: 100%; height: auto; border-radius: 10px; margin-top: 10px; }
+        .toggle-btn { background-color: #0073e6; color: white; border: none; padding: 10px 20px; margin-top: 10px; cursor: pointer; border-radius: 25px; font-size: 14px; transition: background-color 0.3s ease; }
+        .toggle-btn:hover { background-color: #005bb5; }
+        .genre-container { position: absolute; top: 10px; right: 10px; display: flex !important; gap: 5px; }
+        .genre { padding: 5px 10px; border-radius: 25px; font-size: 12px; color: white; }
+        .genre.culture { background-color: #ff6f61; }
+        .genre.nature { background-color: #6b5b95; }
+        .genre.gastronomie { background-color: #88b04b; }
+        .genre.histoire { background-color: #ffd700; }
+        .genre.détente { background-color: #92a8d1; }
+        .filter-buttons { margin-bottom: 20px; }
+        .filter-button { background-color: #0073e6; color: white; border: none; padding: 10px 20px; margin: 5px; cursor: pointer; border-radius: 25px; font-size: 14px; transition: background-color 0.3s ease; }
+        .filter-button:hover { background-color: #005bb5; }
+        .action-button { background-color: #ff6f61; color: white; border: none; padding: 10px 20px; margin-left: 20px; cursor: pointer; border-radius: 25px; font-size: 14px; transition: background-color 0.3s ease; }
+        .action-button:hover { background-color: #ff5a5a; }
+    </style>
+    <script>
+     function toggleText(section) {
+    let content = section.querySelector('.hidden-content');
+    let button = section.querySelector('.toggle-btn');
+
+    if (content.style.display === '' || content.style.display === 'none') {
+        content.style.display = 'block';
+        button.innerText = 'Voir moins';
+    } else {
+        content.style.display = 'none';
+        button.innerText = 'Voir plus';
+    }
+}
+
+        function filterSections(genre) {
+            const sections = document.querySelectorAll('.section');
+            sections.forEach(section => {
+                const genres = section.dataset.genre.split(' ');
+                if (genre === 'all' || genres.includes(genre)) {
+                    section.style.display = 'block';
+                } else {
+                    section.style.display = 'none';
+                }
+            });
+        }
+    </script>
+</head>
+<body>
+    <header>
+        <h1 id="page-title">Choses à faire à Marseille</h1>
+        <nav>
+            <div class="dropdown">
+                <a href="#" class="nav-link">Destinations</a>
+                <div class="dropdown-content">
+                    <a href="index.html">Marseille</a>
+                    <a href="larochelle.html">La Rochelle</a>
+                    <a href="guadeloupe.html">Guadeloupe</a>
+                </div>
+            </div>
+            <a id="deals" href="https://coclibel.com/serviceproduct/1727627635930x348655286520905700" class="nav-link">Nos bons plans</a>
+            <a href="contact.html" class="nav-link">Contact</a>
+        </nav>
+    </header>
+    <div class="background">
+        <h1>Découvrez les meilleures choses à faire à Marseille</h1>
+        <p>Activités incontournables, lieux emblématiques et bons plans exclusifs.</p>
+    </div>
+    <div class="content">
+        <div class="filter-buttons">
+            <button class="filter-button" onclick="filterSections('all')">Tout</button>
+            <button class="filter-button" onclick="filterSections('culture')">Culture</button>
+            <button class="filter-button" onclick="filterSections('nature')">Nature</button>
+            <button class="filter-button" onclick="filterSections('gastronomie')">Gastronomie</button>
+            <button class="filter-button" onclick="filterSections('histoire')">Histoire</button>
+            <button class="filter-button" onclick="filterSections('détente')">Détente</button>
+        </div>
+        <div class="section" data-genre="histoire" onclick="toggleText(this)">
+            <div class="genre-container">
+                <div class="genre histoire">Histoire</div>
+            </div>
+            <h2>1. Visiter le Vieux-Port de Marseille</h2>
+            <img src="https://upload.wikimedia.org/wikipedia/commons/thumb/7/74/Marseille_Old_Port.jpg/1920px-Marseille_Old_Port.jpg" alt="Vieux-Port de Marseille">
+            <div class="hidden-content">
+                <p>Le Vieux-Port de Marseille est l’un des lieux les plus emblématiques de la ville. C’est ici que l’histoire de Marseille a commencé, et aujourd’hui encore, il reste un lieu animé où les bateaux de pêche côtoient les yachts de luxe.</p>
+                <ul>
+                    <li>Une promenade sur le port.</li>
+                    <li>Déguster une bouillabaisse dans un restaurant traditionnel.</li>
+                    <li>Embarquer pour une excursion vers les îles du Frioul ou le Château d’If.</li>
+                </ul>
+                <h3>🔥 BON PLAN :</h3>
+                👉 Réserve ici :
+                <br>
+                🔗 <a href="https://coclibel.com/serviceprod1/1739197158047x402303106970550300?lang=fr_FR" target="_blank"> Fada Bike - Tour du Vieux-Port </a>
+                <br>
+                🔗 <a href="https://coclibel.com/serviceprod1/1739197954854x279448711416250370?lang=fr_FR" target="_blank"> Louez un vélo électrique </a>
+            </div>
+            <button class="toggle-btn">Voir plus</button>
+        </div>
+        <div class="section alt-section" data-genre="histoire" onclick="toggleText(this)">
+            <div class="genre-container">
+                <div class="genre histoire">Histoire</div>
+            </div>
+            <h2>2. Explorer Notre-Dame de la Garde</h2>
+            <img src="https://upload.wikimedia.org/wikipedia/commons/thumb/c/cf/Basilique_Notre-Dame-de-la-Garde_-_vue_int%C3%A9rieure.jpg/1280px-Basilique_Notre-Dame-de-la-Garde_-_vue_int%C3%A9rieure.jpg" alt="Notre-Dame de la Garde">
+            <div class="hidden-content">
+                <p>Si vous cherchez le plus beau point de vue sur Marseille, c’est ici qu’il faut aller ! La Basilique Notre-Dame de la Garde, surnommée la "Bonne Mère", perchée sur une colline, domine la ville et offre une vue panoramique incroyable sur toute la cité phocéenne et la Méditerranée.</p>
+                <h3>⛪ Pourquoi monter à Notre-Dame de la Garde ?</h3>
+                <ul>
+                    <li><strong>Un panorama exceptionnel 🌍 :</strong> Vue à 360° sur Marseille, les îles du Frioul et la Côte Bleue.</li>
+                    <li><strong>Un joyau architectural 🏰 :</strong> Un mélange unique de style romano-byzantin et de mosaïques dorées.</li>
+                    <li><strong>Un symbole de protection pour les marseillais ✨ :</strong> Les marins viennent y déposer des ex-voto pour être protégés en mer.</li>
+                    <li><strong>Un spot parfait pour les photos 📸 :</strong> Idéal pour capturer Marseille au coucher du soleil.</li>
+                </ul>
+                <h3>🚲 Bon Plan : Monte à la Bonne Mère sans effort avec Fada Bike !</h3>
+                <p>💡 <strong>Envie d’éviter la montée fatigante ?</strong> Avec Fada Bike, grimpe jusqu'à Notre-Dame de la Garde sans transpirer grâce au vélo électrique !</p>
+                <h3>🔥 BON PLAN : Offre spéciale pour une visite guidée en vélo électrique !</h3>
+                👉 Réserve ici :
+                <br>
+                🔗 🔹 <a href="https://coclibel.com/serviceprod1/1739197158047x402303106970550300?lang=fr_FR&root=1739196707368x272818063417802750&serviceaccueillant=1727627635930x348655286520905700&discount=discount" target="_blank"> Fada Bike - Ascension Notre-Dame de la Garde </a>
+                <br>
+                🔗 🔹 <a href="https://coclibel.com/serviceprod1/1739197954854x279448711416250370?lang=fr_FR&root=1739197832138x667712320408911900&serviceaccueillant=1727627635930x348655286520905700&discount=discount" target="_blank"> Fada Bike - Réserve ton vélo </a>
+            </div>
+            <button class="toggle-btn">Voir plus</button>
+        </div>
+        <div class="section" data-genre="culture" onclick="toggleText(this)">
+            <div class="genre-container">
+                <div class="genre culture">Culture</div>
+            </div>
+            <h2>3. Découvrir le quartier du Panier</h2>
+            <img src="https://upload.wikimedia.org/wikipedia/commons/c/c8/Rue_Panier_Marseille.jpg" alt="Le Panier">
+            <div class="hidden-content">
+                <p>Le Panier de Marseille est un labyrinthe de ruelles pittoresques, de façades colorées et de petites boutiques d’artisans. Ce quartier bohème est idéal pour une balade à pied et pour ressentir l’âme authentique de Marseille.</p>
+                <ul>
+                    <li>À voir absolument : la Vieille Charité, un superbe bâtiment historique, et les fresques de street-art qui ornent les murs du quartier.</li>
+                </ul>
+            </div>
+            <button class="toggle-btn">Voir plus</button>
+        </div>
+        <div class="section alt-section" data-genre="nature détente" onclick="toggleText(this)">
+            <div class="genre-container">
+                <div class="genre nature">Nature</div>
+                <div class="genre détente">Détente</div>
+            </div>
+            <h2>4. Randonnée dans les Calanques</h2>
+            <img src="https://upload.wikimedia.org/wikipedia/commons/thumb/d/d7/En-Vau_calanque_1.jpg/1920px-En-Vau_calanque_1.jpg" alt="Calanques de Marseille">
+            <div class="hidden-content">
+                <p>Si vous cherchez "les plus beaux paysages naturels près de Marseille", alors direction le Parc National des Calanques ! Ce joyau de la nature offre des sentiers de randonnée exceptionnels et des criques aux eaux turquoise.</p>
+                <ul>
+                    <li>Les calanques à ne pas manquer : Sormiou, Morgiou, En-Vau et surtout la calanque de Sugiton, une véritable piscine naturelle aux eaux cristallines, parfaite pour une baignade après une randonnée.</li>
+                </ul>
+            </div>
+            <button class="toggle-btn">Voir plus</button>
+        </div>
+        <div class="section" data-genre="nature" onclick="toggleText(this)">
+            <div class="genre-container">
+                <div class="genre nature">Nature</div>
+            </div>
+            <h2>5. Explorer la Grotte Bleue</h2>
+            <img src="https://upload.wikimedia.org/wikipedia/commons/thumb/f/fd/Grotta_azzurra.capri.JPG/1920px-Grotta_azzurra.capri.JPG" alt="Grotte Bleue">
+            <div class="hidden-content">
+                <p>La Grotte Bleue de Marseille est un secret bien gardé. Accessible en kayak ou en bateau, cette grotte maritime se distingue par ses incroyables reflets bleutés dus à la lumière naturelle.</p>
+                <ul>
+                    <li>Conseil pratique : Si vous ne voulez pas marcher longtemps, pensez à réserver une table dans <a href="https://g.co/kgs/64HkBUr" target="_blank"> le nautic bar </a>, le restaurant du port, ce qui vous permet d’avoir un accès plus rapide.</li>
+                    <li>Vous pouvez aussi y accéder directement par la mer lors d'une <a href="https://coclibel.com/serviceprod1/1737465706847x638020021389885400?lang=fr_FR&root=1737465511051x504047094939779100&serviceaccueillant=1727627635930x348655286520905700" target="_blank"> excursion calanque en Bateau </a>.</li>
+                </ul>
+            </div>
+            <button class="toggle-btn">Voir plus</button>
+        </div>
+        <div class="section" data-genre="détente" onclick="toggleText(this)">
+            <div class="genre-container">
+                <div class="genre détente">Détente</div>
+            </div>
+            <h2>6. Se promener sur la Corniche Kennedy</h2>
+            <img src="https://upload.wikimedia.org/wikipedia/commons/b/b6/MarseillesRade.jpg" alt="Corniche Kennedy">
+            <div class="hidden-content">
+                <p>La <strong>Corniche Kennedy</strong> est la plus belle route côtière de Marseille !</p>
+                <h3>🌅 Pourquoi parcourir la Corniche Kennedy ?</h3>
+                <ul>
+                    <li><strong>Un itinéraire 100% panoramique 🌊 :</strong> Vue incroyable sur la mer.</li>
+                    <li><strong>Les plages et criques accessibles 🏖️ :</strong> Parfait pour une pause.</li>
+                </ul>
+                <h3>🚴‍♂️ Bon Plan : Parcours la Corniche en vélo électrique !</h3>
+                <p>💡 <strong>Envie de longer la mer sans effort ?</strong></p>
+                <a href="https://coclibel.com/serviceprod1/1739197954854x279448711416250370?lang=fr_FR&root=1739197832138x667712320408911900&serviceaccueillant=1727627635930x348655286520905700&discount=discount" target="_blank">🔹 Loue un vélo électrique </a>
+                ou <a href="https://coclibel.com/serviceprod1/1739197158047x402303106970550300?lang=fr_FR&root=1739196707368x272818063417802750&serviceaccueillant=1727627635930x348655286520905700&discount=discount" target="_blank">🔹 Profite d'un Tour organisé </a>
+            </div>
+            <button class="toggle-btn">Voir plus</button>
+        </div>
+        <div class="section" data-genre="nature" onclick="toggleText(this)">
+            <div class="genre-container">
+                <div class="genre nature">Nature</div>
+            </div>
+            <h2>7. Découvrir les Goudes</h2>
+            <img src="https://upload.wikimedia.org/wikipedia/commons/thumb/d/d9/Rocher_des_Goudes.jpg/1920px-Rocher_des_Goudes.jpg" alt="Les Goudes">
+            <div class="hidden-content">
+                <p>Si tu cherches le plus beau coin authentique de Marseille, les Goudes sont une destination incontournable. Situé à l’extrême sud de la ville, ce petit village de pêcheurs offre un cadre naturel exceptionnel, entre mer turquoise, falaises escarpées et criques secrètes. Loin du tumulte urbain, les Goudes sont le lieu parfait pour une escapade nature à Marseille, que ce soit pour une balade, une baignade ou une session paddle inoubliable !</p>
+                <h3>🏝️ Pourquoi visiter les Goudes à Marseille ?</h3>
+                <ul>
+                    <li>🌊 Un décor naturel à couper le souffle : Les Goudes offrent un paysage de carte postale, avec des eaux cristallines, des rochers sculptés par le vent et une nature préservée. C’est l’un des meilleurs endroits de Marseille pour une randonnée panoramique ou une baignade dans des criques secrètes comme la Calanque de Callelongue et la Baie des Singes.</li>
+                    <li>🏡 Un village pittoresque et authentique : Balade-toi entre les petites maisons de pêcheurs colorées, découvre des restaurants typiques où déguster du poisson frais et une bouillabaisse traditionnelle, et profite de l’ambiance chaleureuse et locale du quartier.</li>
+                    <li>🌅 Un coucher de soleil inoubliable : Les Goudes sont LE spot parfait pour admirer un coucher de soleil féerique sur la Méditerranée. Un moment magique à ne pas manquer lors de ton séjour à Marseille !</li>
+                </ul>
+                <h3>🚣‍♂️ Bon Plan Paddle aux Goudes : Découvre la Côte Marseillaise depuis la Mer !</h3>
+                <p>Tu veux vivre une expérience unique à Marseille ? Navigue en paddle le long des falaises des Goudes et accède à des criques secrètes uniquement accessibles par la mer. C’est l’une des meilleures activités outdoor à faire à Marseille pour profiter pleinement du paysage entre sport et détente.</p>
+                <h3>🔥 BON PLAN : Réserve ta session Paddle aux Goudes à prix réduit !</h3>
+                👉 Accède à l'offre ici : 🔗 <a href="https://coclibel.com/serviceprod1/1739550260443x633618400859127800?lang=fr_FR&root=1739550144879x180113919699582980&serviceaccueillant=1727627635930x348655286520905700&discount=discount" target="_blank"> Paddle aux Goudes - Réservation </a>
+                <h3>📍 Infos Pratiques pour visiter les Goudes</h3>
+                <ul>
+                    <li>📌 Localisation : Quartier des Goudes, Marseille, France</li>
+                    <li>🚗 Accès : 30 minutes en voiture ou en bus depuis le Vieux-Port</li>
+                    <li>🏖️ Que faire ? : Paddle, baignade, randonnée, snorkeling</li>
+                    <li>🍽️ Où manger ? : Les incontournables "Le Grand Bar des Goudes" et "Chez Paul" pour déguster une authentique bouillabaisse marseillaise.</li>
+                    <li>📷 Meilleurs spots photos : Vue panoramique depuis la route des Goudes et la plage de la Baie des Singes.</li>
+                </ul>
+                <h3>🔥 Pourquoi aller aux Goudes à Marseille ?</h3>
+                <ul>
+                    <li>✅ Un des plus beaux endroits de Marseille pour une escapade nature</li>
+                    <li>✅ Une ambiance authentique entre mer et village de pêcheurs</li>
+                    <li>✅ Des criques secrètes et une eau turquoise digne des Caraïbes</li>
+                    <li>✅ Un spot parfait pour le paddle et une session unique en Méditerranée</li>
+                    <li>✅ Un bon plan paddle pour profiter au meilleur prix</li>
+                </ul>
+                <p>Si tu veux découvrir le Marseille sauvage, loin des touristes, alors ne rate pas les Goudes ! Prépare-toi pour une immersion entre terre et mer, dans l’un des plus beaux paysages du sud de la France. 🌊🔥</p>
+            </div>
+            <button class="toggle-btn">Voir plus</button>
+        </div>
+        <div class="section alt-section" data-genre="histoire" onclick="toggleText(this)">
+            <div class="genre-container">
+                <div class="genre histoire">Histoire</div>
+            </div>
+            <h2>8. Visiter une savonnerie de Marseille</h2>
+            <img src="https://upload.wikimedia.org/wikipedia/commons/6/6e/Savons_de_Marseille_002.JPG" alt="Savonnerie de Marseille">
+            <div class="hidden-content">
+                <p>Impossible de repartir sans un vrai savon de Marseille ! Visitez une savonnerie traditionnelle pour comprendre le processus de fabrication et acheter des savons authentiques.</p>
+                <ul>
+                    <li>Pour faire son savon dans une des plus vieilles usines à savon de Marseille, c'est <a href="https://coclibel.com/serviceprod1/1738946656794x286228932908023800?lang=fr_FR&root=1738946596299x233740637868130300&serviceaccueillant=1727627635930x348655286520905700&discount=discount" target="_blank">ici</a>.</li>
+                </ul>
+            </div>
+            <button class="toggle-btn">Voir plus</button>
+        </div>
+        <div class="section" data-genre="gastronomie" onclick="toggleText(this)">
+            <div class="genre-container">
+                <div class="genre gastronomie">Gastronomie</div>
+            </div>
+            <h2>9. Déguster des panisses à l’Estaque</h2>
+            <img src="https://upload.wikimedia.org/wikipedia/commons/e/e3/Panisses_marseillaises_4.jpg" alt="L'Estaque">
+            <div class="hidden-content">
+                <p>L’Estaque est un quartier connu pour son ambiance typiquement marseillaise et ses panisses, ces délicieux beignets à base de pois chiche.</p>
+                <ul>
+                    <li>Où manger les meilleures panisses ? Chez Magali et chez Freddy !</li>
+                </ul>
+            </div>
+            <button class="toggle-btn">Voir plus</button>
+        </div>
+        <div class="section alt-section" data-genre="nature" onclick="toggleText(this)">
+            <div class="genre-container">
+                <div class="genre nature">Nature</div>
+            </div>
+            <h2>10. Profiter de la calanque de Sugiton</h2>
+            <img src="https://upload.wikimedia.org/wikipedia/commons/thumb/3/38/Calanque_de_Sugiton.JPG/800px-Calanque_de_Sugiton.JPG" alt="Calanque de Sugiton">
+            <div class="hidden-content">
+                <p>Sugiton, c’est un véritable bijou naturel qui semble avoir été façonné sur mesure pour l’homme. Son eau cristalline, sa biodiversité préservée et son cadre sauvage en font un lieu presque irréel, comme si la nature elle-même avait décidé d’offrir à Marseille son propre lagon. Entre les rochers sculptés par le temps et les criques secrètes, c’est l’endroit parfait pour se poser avec un hamac et un bon livre, bercé par le chant des cigales et le clapotis des vagues. Parfait pour une pause détente avec un hamac et un bon livre.</p>
+            </div>
+            <button class="toggle-btn">Voir plus</button>
+        </div>
+        <div class="section" data-genre="culture" onclick="toggleText(this)">
+            <div class="genre-container">
+                <div class="genre culture">Culture</div>
+            </div>
+            <h2>11. Aller au Mucem</h2>
+            <img src="https://upload.wikimedia.org/wikipedia/commons/thumb/3/34/Mucem_Marseille_01.jpg/1920px-Mucem_Marseille_01.jpg" alt="Le Panier">
+            <div class="hidden-content">
+                <p>Véritable symbole de la rencontre entre tradition et modernité, le Mucem est un incontournable de Marseille. Conçu par l’architecte Rudy Ricciotti, son bâtiment impressionne par son enchevêtrement de béton ajouré, évoquant les moucharabiehs méditerranéens. Ce musée national explore les civilisations européennes et méditerranéennes à travers des expositions captivantes mêlant histoire, art et anthropologie. Situé en bord de mer, relié au Fort Saint-Jean par une passerelle spectaculaire, il offre aussi des vues imprenables sur le Vieux-Port et la Méditerranée.</p>
+                <ul>
+                    <li>Réservez vos billets <a href="https://billetterie.mucem.org/fr-FR/billetteriemucem" target="_blank"> ici</a></li>
+                </ul>
+            </div>
+            <button class="toggle-btn">Voir plus</button>
+        </div>
+        <div class="section alt-section" data-genre="culture Gastronomie" onclick="toggleText(this)">
+            <div class="genre-container">
+                <div class="genre culture">Culture</div>
+                <div class="genre gastronomie">Gastronomie</div>
+
+            </div>
+            <h2>12. Découvrir le Cours Julien</h2>
+            <img src="https://tarpin-bien.com/wp-content/uploads/2021/01/MAT-20141031-8887-e1611591018966-980x551.jpg" alt="Cours Julien">
+            <div class="hidden-content">
+                <p>Le Cours Julien, c’est l’âme bohème de Marseille, un quartier vibrant où l’art et la créativité explosent à chaque coin de rue. Véritable galerie à ciel ouvert, ses murs sont recouverts de street art coloré, faisant de chaque balade une découverte artistique. Ici, les cafés animés, les librairies indépendantes et les boutiques de créateurs donnent une atmosphère unique, entre effervescence et chill absolu. Que ce soit pour flâner, s’imprégner de l’ambiance ou juste savourer un bon café en terrasse, impossible de ne pas tomber sous le charme du 'Cours Ju' !
+                    Petit conseil, allez y en début de soirée voir le coucher de soleil en haut des marches puis récupérez des fruits de mer pour les déguster sur l'une des terrasses de la plaine. Attention à bien les réservez à l'avance <a href="https://coclibel.com/serviceprod1/1728469746291x932966249970794500?lang=fr_FR&root=1727873864658x234702049219444740&serviceaccueillant=1727627635930x348655286520905700&discount=ok"> ici </a>.'
+                </p>
+            </div>
+            <button class="toggle-btn">Voir plus</button>
+        </div>
+        <div class="section" data-genre="culture histoire" onclick="toggleText(this)">
+            <div class="genre-container">
+                <div class="genre culture">Culture</div>
+                <div class="genre histoire">Histoire</div>
+            </div>
+            <h2>13. Visiter le Palais Longchamp</h2>
+            <img src="https://upload.wikimedia.org/wikipedia/commons/thumb/e/e6/Marseille_Palais_Longchamp_At_Night_JD_22052007.jpg/1920px-Marseille_Palais_Longchamp_At_Night_JD_22052007.jpg" alt="Palais Longchamp">
+            <div class="hidden-content">
+                <p>Un véritable chef-d'œuvre architectural qui ne se contente pas d’être beau : il abrite aussi deux musées aux expositions fascinantes, avec une entrée gratuite. Entouré de magnifiques jardins, c’est un lieu idéal pour flâner et profiter d’un panorama exceptionnel. Mais ce n’est pas tout ! Ici, l’histoire est gravée dans la pierre : on y trouve des vestiges du passé, témoins du moment où l’eau de Marseille a été amenée à la ville, un tournant essentiel pour son développement. Un mélange parfait entre culture, patrimoine et détente.</p>
+                <ul>
+                    <li>Les Musées Gratuits c'est <a href="https://coclibel.com/serviceprod1/1738927066023x969153448478507000?root=1738779355768x986147144822947800&lang=fr_FR" target="_blank"> ici </a></li>
+                </ul>
+            </div>
+            <button class="toggle-btn">Voir plus</button>
+        </div>
+        <div class="section alt-section" data-genre="nature" onclick="toggleText(this)">
+            <div class="genre-container">
+                <div class="genre nature">Nature</div>
+            </div>
+            <h2>14. Excursions autour de Marseille</h2>
+            <img src="https://upload.wikimedia.org/wikipedia/commons/thumb/b/bd/Cassis-Port.jpg/1920px-Cassis-Port.jpg" alt="La Rochelle">
+            <div class="hidden-content">
+                <p>Ne vous arrêtez pas à Marseille ! Partez à la découverte des trésors de la région en visitant des lieux pittoresques incontournables. À quelques kilomètres, La Rochelle vous émerveillera avec ses calanques spectaculaires et son port plein de charme. La Ciotat, berceau du cinéma, offre un littoral magnifique et une atmosphère méditerranéenne authentique. Plus loin, Hyères et ses îles paradisiaques, comme Porquerolles, dévoilent des plages dignes des Caraïbes. Ces escapades sont parfaites pour une journée ou un week-end loin de l’agitation urbaine. Il est également indispensable à Marseille d'aller <a href="https://coclibel.com/serviceprod1/1738749162110x603605586749685800?lang=&root=1738749045154x851585167743778800&serviceaccueillant=1727627635930x348655286520905700&discount=discount" >visiter les vignobles</a>, berceau du terroir méditerranéen.</p>
+                <ul>
+                    <li>Retrouvez tous nos bons plans <a href="https://coclibel.com/serviceproduct/1727627635930x348655286520905700" target="_blank"> ici </a></li>
+                </ul>
+            </div>
+            <button class="toggle-btn">Voir plus</button>
+        </div>
+        <div class="section" data-genre="nature culture" onclick="toggleText(this)">
+            <div class="genre-container">
+                <div class="genre nature">Nature</div>
+                <div class="genre culture">Culture</div>
+            </div>
+            <h2>15. Visiter les îles du Frioul</h2>
+            <img src="https://upload.wikimedia.org/wikipedia/commons/0/01/Monte-Cristo_if_castle_-_marseille_France_by_JM_Rosier.JPG" alt="Îles du Frioul">
+            <div class="hidden-content">
+                <p>Les îles du Frioul sont un archipel situé à quelques encablures de Marseille, offrant un cadre naturel exceptionnel. Accessibles en bateau depuis le Vieux-Port, ces îles sont parfaites pour une journée de détente et de découverte. Vous pourrez y explorer des plages de sable fin, des criques isolées et des sentiers de randonnée offrant des vues imprenables sur la Méditerranée. Ne manquez pas de visiter le Château d’If, célèbre pour avoir été le décor du roman "Le Comte de Monte-Cristo" d’Alexandre Dumas.</p>
+            </div>
+            <button class="toggle-btn">Voir plus</button>
+        </div>
+        <div class="section" data-genre="nature culture" onclick="toggleText(this)">
+            <div class="genre-container">
+                <div class="genre nature">Nature</div>
+                <div class="genre culture">Culture</div>
+            </div>
+            <h2>16. Le Musée Subaquatique de Marseille</h2>
+            <img src="https://www.leparisien.fr/resizer/67SHxBIezUgIsbgDePszXwVauJ8=/932x582/cloudfront-eu-central-1.images.arcpublishing.com/leparisien/AW72LJD42VZ4T3QRMZM4QESN6I.jpg" alt="Îles du Frioul">
+            <div class="hidden-content">
+                <p>Si tu cherches une expérience insolite et inoubliable à Marseille, le Musée Subaquatique est LE lieu à ne pas manquer ! Situé à quelques mètres sous la surface, au large de la plage des Catalans, ce musée unique en France te plonge (littéralement) dans un univers artistique et écologique hors du commun.</p>
+                <h3>🖼️ Un Musée… sous l’eau !</h3>
+                <p>Contrairement aux musées classiques, ici, pas de salles d’exposition ni de vitrines : les œuvres sont immergées à 5 mètres de profondeur, accessibles uniquement en plongée ou en snorkeling ! Une dizaine de sculptures monumentales, réalisées par des artistes contemporains, reposent sur le fond marin, habitées peu à peu par la faune et la flore sous-marines. Un spectacle fascinant où l’art et la nature fusionnent.</p>
+                <h3>🤿 Deux façons de le découvrir : snorkeling ou plongée !</h3>
+                <ul>
+                    <li>En snorkeling (palmes, masque, tuba) : Si tu es à l’aise dans l’eau, tu peux observer les sculptures en flottant à la surface, un vrai plaisir accessible à tous !</li>
+                    <li>En plongée bouteille : Pour une immersion totale, équipe-toi d’une bouteille et nage au plus près des sculptures, une sensation magique à couper le souffle.</li>
+                </ul>
+                <p>💡 Tu n’as jamais plongé ? Pas de souci, tu peux vivre cette expérience incroyable dans le cadre d’un baptême de plongée ! Une occasion rêvée de découvrir le monde sous-marin tout en explorant une galerie d’art unique au monde. 😍</p>
+                <h3>✨ BON PLAN : On a une offre spéciale pour toi ! 🎉</h3>
+                <p>👉 Profite d’un baptême de plongée au musée subaquatique à prix réduit ! Retrouve tous les détails et réserve ton expérience ici : 🔗 <a href="https://coclibel.com/serviceprod1/1737733690820x452701390108622850?lang=fr_FR&root=1737733596263x884934549516845000&serviceaccueillant=1727627635930x348655286520905700&discount=discount" target="_blank">Voir l'offre</a></p>
+            </div>
+            <button class="toggle-btn">Voir plus</button>
+        </div>
+
+        <div class="section alt-section" data-genre="gastronomie" onclick="toggleText(this)">
+            <div class="genre-container">
+                <div class="genre gastronomie">Gastronomie</div>
+            </div>
+            <h2>16. Goûter la Bouillabaisse </h2>
+            <img src="https://upload.wikimedia.org/wikipedia/commons/thumb/6/65/Bouillabaisse_01.jpg/1920px-Bouillabaisse_01.jpg" alt="Bouillabaisse chez Fonfon">
+            <div class="hidden-content">
+                <p>Impossible de venir à Marseille sans goûter sa spécialité culinaire la plus emblématique : <strong>la bouillabaisse</strong> ! Ce plat traditionnel de pêcheurs, à base de poissons frais, de fruits de mer et d’une savoureuse soupe parfumée aux épices et au safran, est une véritable institution.</p>
+        
+                <h3>🍲 Où déguster la meilleure bouillabaisse à Marseille ?</h3>
+                <p>📍 <strong>Chez Fonfon</strong>, un restaurant emblématique situé dans le charmant port du Vallon des Auffes, est une adresse incontournable pour savourer une bouillabaisse authentique dans un cadre exceptionnel en bord de mer.</p>
+        
+                <h3>💡 Pourquoi choisir Chez Fonfon ?</h3>
+                <ul>
+                    <li>✅ <strong>Une recette traditionnelle</strong> préparée avec des poissons frais du jour.</li>
+                    <li>✅ <strong>Un cadre idyllique</strong> avec vue sur le Vallon des Auffes, un des plus beaux endroits de Marseille.</li>
+                    <li>✅ <strong>Un service de qualité</strong> dans une ambiance chaleureuse et authentique.</li>
+                </ul>
+        
+                <h3>🔥 BON PLAN : Réserve ta bouillabaisse chez Fonfon !</h3>
+                <p>Profite d’un repas gastronomique face à la mer avec une bouillabaisse exceptionnelle.</p>
+                👉 Réserve ici : 🔗 <a href="https://www.chez-fonfon.com/" target="_blank"> Réserver une table chez Fonfon</a>
+        
+                <h3>📍 Infos Pratiques :</h3>
+                <ul>
+                    <li>📌 Adresse : 140 Rue du Vallon des Auffes, 13007 Marseille, France</li>
+                    <li>📅 Ouverture : Tous les jours sauf le mardi</li>
+                    <li>📞 Réservation conseillée : +33 4 91 52 14 38</li>
+                </ul>
+        
+                <p>Si tu veux vivre une expérience culinaire unique et déguster une bouillabaisse authentique dans l’un des plus beaux quartiers de Marseille, <strong>Chez Fonfon est l’adresse qu’il te faut !</strong> 🍽️🔥</p>
+            </div>
+            <button class="toggle-btn">Voir plus</button>
+        </div>
+        
+
+    </div>
+</body>
+</html>
